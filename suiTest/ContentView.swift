@@ -7,13 +7,8 @@
 
 import SwiftUI
 
-//enum TrafficLightColor {
-//    case red, yellow, green
-//}
-
-
 struct ContentView: View {
-    @State var currentColor: TrafficLightColor = .red
+    @State var currentColor: TrafficLightColor?
     
     var body: some View {
         ZStack{ 
@@ -24,9 +19,18 @@ struct ContentView: View {
         )
         .edgesIgnoringSafeArea(.all)
             VStack(spacing: 20){
-                TrafficLightHead(colorTraffic: .red, isOn: currentColor == .red)
-                TrafficLightHead(colorTraffic: .yellow, isOn: currentColor == .yellow)
-                TrafficLightHead(colorTraffic: .green, isOn: currentColor == .green)
+                TrafficLightHead(
+                    colorTraffic:.red,
+                    isOn: currentColor == .red
+                )
+                TrafficLightHead(
+                    colorTraffic: .yellow,
+                    isOn: currentColor == .yellow
+                )
+                TrafficLightHead(
+                    colorTraffic: .green,
+                    isOn: currentColor == .green
+                )
                 Spacer()
                 ChangeLightButton(currentColor: $currentColor)
             }

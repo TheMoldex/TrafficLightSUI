@@ -36,6 +36,6 @@ struct TrafficLightHead: View {
 #Preview {
     ZStack{
         Color.black
-        TrafficLightHead(colorTraffic: .green, isOn: false)
+        TrafficLightHead(colorTraffic: .green, isOn: true)
     }
 }

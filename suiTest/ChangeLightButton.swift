@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct ChangeLightButton: View {
-   @Binding var currentColor: TrafficLightColor
+   @Binding var currentColor: TrafficLightColor?
     
     var body: some View {
         Button(action: {
-            print("работает")
             switch currentColor {
             case .red:
                 currentColor = .yellow
@@ -20,10 +19,12 @@ struct ChangeLightButton: View {
                 currentColor = .green
             case .green:
                 currentColor = .red
+            case .none:
+                currentColor = .red
             }
-        }, label: {
-            Text("NEXT")
-        })
+        }) {
+            Text(currentColor == nil ? "START" : "NEXT")
+        }
         .frame(width:200, height: 50)
         .background(
             RoundedRectangle(cornerRadius: 15)
