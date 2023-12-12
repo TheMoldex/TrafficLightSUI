@@ -12,15 +12,17 @@ struct ChangeLightButton: View {
     
     var body: some View {
         Button(action: {
-            switch currentColor {
-            case .red:
-                currentColor = .yellow
-            case .yellow:
-                currentColor = .green
-            case .green:
-                currentColor = .red
-            case .none:
-                currentColor = .red
+            withAnimation {
+                switch currentColor {
+                case .red:
+                    currentColor = .yellow
+                case .yellow:
+                    currentColor = .green
+                case .green:
+                    currentColor = .red
+                case .none:
+                    currentColor = .red
+                }
             }
         }) {
             Text(currentColor == nil ? "START" : "NEXT")
